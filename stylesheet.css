@@ -1,0 +1,451 @@
+@font-face {
+    font-family: "kipp_font";
+    src: url("font/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: "kipp_font";
+    src: url("font/Montserrat-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "kipp_font";
+    src: url("font/Montserrat-Italic.ttf");
+    font-style: italic;
+}
+
+:root{
+    --primary-color: #006400;
+    --secondary-color: #114b5f;
+    --text-color-dark: #220c10;
+    --text-color-light: color-mix(in srgb, #808080 30%, white);
+    --background-color: #171722;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    min-height: 100dvh;
+    scroll-behavior: smooth;
+    color: var(--text-color-dark);
+    font-family: kipp_font, sans-serif;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: end;
+    align-content: center;
+    height: 10dvh;
+    position: absolute;
+    width: 100%;
+}
+
+nav a{
+    margin: 0em 1.5em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-light, white);
+    letter-spacing: 0.125em;
+    align-self: center;
+    transition: 0.5s linear;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    text-underline-offset: 0.5em;
+    color: var(--primary-color, darkgreen);
+}
+
+/* Header */
+header {
+    height: 100dvh;
+    display: grid;
+    grid-template-areas:
+    "name image"
+    "description image";
+    grid-template-columns: 45% 40%;
+    grid-template-rows: 35% 65%;
+    justify-content: end;
+    align-content: center;
+    padding: 12.5vh 0 7.5vh;
+    column-gap: 5%;
+    background: rgb(0,212,255);
+    /* source for linear-gradient calculation: https://cssgradient.io */
+    background: linear-gradient(90deg, rgb(19, 39, 40) 0%, rgb(16, 40, 8) 67%, rgb(2, 19, 1) 100%);
+    /* source: https://pixabay.com/illustrations/curves-waves-lines-texture-element-7982328/ */
+    background-image: url("img/background.jpg");
+    background-size: cover;
+}
+
+header h1{
+    grid-area: name;
+    align-self: end;
+    justify-self: start;
+    letter-spacing: 0.25em;
+    color: var(--text-color-light, white);
+    font-weight: bold;
+    font-size: 3.5rem; /* fallback */
+    font-size: 7.5vh;
+    letter-spacing: 0.2em;
+    background-color: var(--background-color);
+    margin-bottom: 1%;
+    padding: 1%;
+}
+
+header p{
+    grid-area: description;
+    color: var(--text-color-light, white);
+    font-size: 1.25rem;
+    font-size: 2.5vh;
+    letter-spacing: 0.125em;
+    font-weight: normal;
+    line-height: 2em;
+    background-color: var(--background-color);
+    height: max-content;
+    margin-top: 1%;
+    padding: 1% 1% 4%;
+    max-height: 100%;
+}
+
+header p a{
+    text-decoration: underline;
+    text-underline-offset: 0.5em;
+    color: var(--primary-color, darkgreen);
+    font-weight: bold;
+}
+
+header picture{
+    grid-area: image;
+    align-self: center;
+    justify-self: center;
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+header picture img{
+    max-width: 100%;
+    max-height: 100%;
+    background-color: var(--background-color, black);
+    align-self: center;
+    animation-duration: 1s;
+    animation-name: slideFromRight;
+}
+
+@media only screen and (max-width: 800px) {
+    header{
+        grid-template-areas:
+            "name name"
+            "description image";
+        max-height: 100%;
+        grid-template-columns: 60% 40%;
+        padding: 0 0 0 10%;
+    }
+
+    header p{
+        font-size: 1rem;
+    }
+
+    header picture img{
+        align-self: start;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    header{
+        grid-template-areas:
+            "name name"
+            "description image";
+        max-height: 100%;
+        grid-template-columns: 60% 40%;
+        padding: 0 0 0 10%;
+    }
+
+    header h1{
+        font-size: 2rem;
+    }
+
+    header p{
+        font-size: 0.75rem;
+    }
+
+    header picture img{
+        align-self: start;
+    }
+}
+
+/* Animations */
+@keyframes slideFromRight {
+    from{
+        margin-left: 100%;
+    }
+
+    to{
+        margin-left: 0%;
+    }
+}
+
+header a{
+    grid-area: description;
+    align-self: end;
+}
+
+/* Home Page Content */
+main#cv{
+    display: grid;
+    grid-template-areas:
+    "title title"
+    "mainContent sideContent";
+    width: 100%;
+    grid-template-columns: 55% auto;
+    justify-content: center;
+    column-gap: 3%;
+    padding: 3% 0;
+    font-size: 1.125rem;
+}
+
+main#cv h2{
+    text-align: center;
+    font-size: 1.8rem;
+    grid-area: title;
+    align-self: center;
+    justify-self: center;
+}
+
+main#cv aside{
+    grid-area: sideContent;
+}
+
+main#cv section{
+    grid-area: mainContent;
+}
+
+main#cv h3{
+    color: var(--primary-color, darkgreen);
+    letter-spacing: 0.125em;
+    padding: 1em 0 0.5em;
+}
+
+main#cv aside table th{
+    text-align: start;
+}
+
+main#cv aside table #skill-languages{
+    padding-top: 1em;
+}
+
+main#cv aside table .skill-value{
+    padding-left: 1em;
+}
+
+/* Nesting is allowed, validator seems not to accept this */
+main#cv aside table .skill-value[data-skill="1"]{
+    visibility: hidden;
+
+    &::after{
+        content: "● ○ ○ ○ ○";
+        visibility: visible;
+    }
+}
+
+main#cv aside table .skill-value[data-skill="2"]{
+    visibility: hidden;
+
+    &::after{
+        content: "● ● ○ ○ ○";
+        visibility: visible;
+    }
+}
+
+main#cv aside table .skill-value[data-skill="3"]{
+    visibility: hidden;
+
+    &::after{
+        content: "● ● ● ○ ○";
+        visibility: visible;
+    }
+}
+
+main#cv aside table .skill-value[data-skill="4"]{
+    visibility: hidden;
+
+    &::after{
+        content: "● ● ● ● ○";
+        visibility: visible;
+    }
+}
+
+main#cv aside table .skill-value[data-skill="5"]{
+    visibility: hidden;
+
+    &::after{
+        content: "● ● ● ● ●";
+        visibility: visible;
+    }
+}
+
+main#cv section details ul{
+    list-style: square inside;
+    padding: 0.5em 1em;
+}
+
+/* Projects & Contact Me Content */
+main#contact, main#projects{
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 3% 0;
+}
+
+main#contact h2, main#projects h2{
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* Projects */
+main#projects table{
+    border: 1px solid var(--background-color, black);
+    width: 100%;
+    font-size: 1.5rem;
+    margin: 1em 0;
+}
+
+main#projects table tr th{
+    background-color: var(--secondary-color, darkgreen);
+    padding: 0.4em;
+    color: var(--text-color-light, white);
+    letter-spacing: 0.125em;
+}
+
+main#projects table tr td{
+    padding: 0.2em;
+    text-align: left;
+}
+
+/* Contact me */
+main#contact form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+main#contact form fieldset{
+    column-gap: 5%;
+    display: grid;
+    padding: 1em 2em;
+    row-gap: 1em;
+    border-radius: 20px;
+    align-items: start;
+    margin: 5% 0 0;
+}
+
+main#contact form fieldset:nth-child(1){
+    grid-template:
+    "nameLabel name"
+    "sourceOfAttentionLabel sourceOfAttention";
+    grid-template-columns: 47.5% 47.5%;
+}
+
+main#contact form fieldset:nth-child(2){
+    grid-template:
+    "typeOfRequestLabel typeOfRequest"
+    "messageLabel message";
+    grid-template-columns: 47.5% 47.5%;
+}
+
+main#contact form fieldset legend{
+    text-align: center;
+    color: var(--primary-color, darkgreen);
+    font-weight: bold;
+}
+
+main#contact form fieldset label,
+main#contact form fieldset input,
+main#contact form fieldset textarea,
+main#contact form fieldset select{
+    width: 100%;
+}
+
+main#contact form fieldset #nameLabel{
+    grid-area: nameLabel;
+    text-align: end;
+}
+
+main#contact form fieldset #name{
+    grid-area: name;
+}
+
+main#contact form fieldset #sourceOfAttentionLabel{
+    grid-area: sourceOfAttentionLabel;
+    text-align: end;
+}
+
+main#contact form fieldset #sourceOfAttention{
+    grid-area: sourceOfAttention;
+}
+
+main#contact form fieldset #typeOfRequest{
+    grid-area: typeOfRequest;
+}
+
+main#contact form fieldset #typeOfRequestLabel{
+    grid-area: typeOfRequestLabel;
+    text-align: end;
+}
+
+main#contact form fieldset #message{
+    grid-area: message;
+}
+
+main#contact form fieldset #messageLabel{
+    grid-area: messageLabel;
+    text-align: end;
+}
+
+main#contact form button{
+    width: 20%;
+    align-self: end;
+    margin: 2% 0;
+    border-radius: 20px;
+    border-style: solid;
+    padding: 0.5em;
+}
+
+main#contact form button:hover{
+    background-color: var(--primary-color, darkgreen);
+    cursor: pointer;
+    color: var(--text-color-light, white);
+    font-weight: bold;
+    transform: scale(1.2);
+    transition-duration: 0.5s;
+}
+
+/* Footer */
+footer{
+    background-color: var(--background-color, black);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 8vh;
+}
+
+footer a{
+    color: var(--text-color-light, white);
+    margin: 0em 1.5em;
+    text-align: center;
+    text-decoration: none;
+}

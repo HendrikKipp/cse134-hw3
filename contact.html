@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="This is a portfolio site for Hendrik Kipp. It provides different information regarding Hendriks previous education and work.">
+    <meta name="keywords" content="Portfolio, Recruiting, Hendrik, Kipp, Computer Science, Business">
+    <meta name="author" content="Hendrik Kipp">
+    <title>Contact - Hendrik Kipp</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="">Contact Me</a>
+    </nav>
+    <header>
+        <h1>Get in touch with me</h1>
+        <p>Here you can get in contact with me</br></br><a href="#contact">Scroll to learn more</a></p>
+    </header>
+    <main id="contact">
+      <h2>Contact form</h2>
+      <form>
+        <fieldset>
+            <legend>Tell me something about you</legend>
+            <label id="nameLabel" for="name">Full Name:</label>
+            <input type="text" id="name" name="name">
+            <label id="sourceOfAttentionLabel" for="sourceOfAttention">How did you here about me:</label>
+            <select name="sourceOfAttention" id="sourceOfAttention">
+                <optgroup label="Social Media">
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="github">GitHub</option>
+                </optgroup>
+                <optgroup label="Other">
+                    <option value="reference">Reference</option>
+                    <option value="metInPerson">Met in person</option>
+                </optgroup>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Your request</legend>
+            <label id="typeOfRequestLabel" for="typeOfRequest">Your type of request:</label>
+            <input list="requestTypes" id="typeOfRequest" name="typeOfRequest">
+            <datalist id="requestTypes">
+                <option value="Request to hire">
+                <option value="Request to get in touch">
+            </datalist>
+            <label id="messageLabel" for="message">Your message for me:</label>
+            <textarea id="message" name="message" rows="3"></textarea>
+        </fieldset>
+
+        <button type="submit">Send to me</button>
+      </form>
+    </main>
+    <footer>
+      <a href="#">Back to Top of Page</a>
+      <a href="contact.html">Contact Me</a>
+    </footer>
+</body>
+</html>
